@@ -1,6 +1,6 @@
 #!/bin/sh
 . $(dirname $0)/common.sh
-
+JWS_HOME=/usr/local/tomcat
 # Source code provided to S2I is at ${HOME}/source
 LOCAL_SOURCE_DIR=${HOME}/source
 mkdir -p $LOCAL_SOURCE_DIR
