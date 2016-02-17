@@ -12,10 +12,10 @@ LABEL io.k8s.description="Platform for building and running webapp applications 
 LABEL io.openshift.s2i.scripts-url=image:///image:///usr/local/s2i
 
 # DEPRECATED: This label will be kept here for backward compatibility
-LABEL io.s2i.scripts-url=image:///image:///usr/local/s2i
+LABEL io.s2i.scripts-url=image:///usr/local/s2i
 
 # Deprecated. Use above LABEL instead, because this will be removed in future versions.
-ENV STI_SCRIPTS_URL=image:///image:///usr/local/s2i
+ENV STI_SCRIPTS_URL=image:///usr/local/s2i
 
 # Path to be used in other layers to place s2i scripts into
 ENV STI_SCRIPTS_PATH=/usr/local/s2i
@@ -30,7 +30,7 @@ RUN (curl -0 http://www.us.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
-
+COPY jboss-settings.xml $HOME/.m2/settings.xml
 RUN chown -R 1001:0 /usr/local/tomcat && \
     chmod -R ug+rw /usr/local/tomcat && \
     chmod -R g+rw /opt/s2i/destination
