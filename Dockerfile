@@ -9,7 +9,7 @@ LABEL io.k8s.description="Platform for building and running webapp applications 
       io.openshift.s2i.scripts-url="image:///usr/local/s2i" \
       io.openshift.s2i.destination="/opt/s2i/destination"
 
-LABEL io.openshift.s2i.scripts-url=image:///image:///usr/local/s2i
+LABEL io.openshift.s2i.scripts-url=image:///usr/local/s2i
 
 # DEPRECATED: This label will be kept here for backward compatibility
 LABEL io.s2i.scripts-url=image:///usr/local/s2i
