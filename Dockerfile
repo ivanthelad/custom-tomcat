@@ -30,7 +30,7 @@ RUN (curl -0 http://www.us.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
-COPY jboss-settings.xml $HOME/.m2/settings.xml
+COPY ./s2i/jboss-settings.xml $HOME/.m2/settings.xml
 RUN chown -R 1001:0 /usr/local/tomcat && \
     chmod -R ug+rw /usr/local/tomcat && \
     chmod -R g+rw /opt/s2i/destination
