@@ -1,4 +1,4 @@
-FROM docker.io/tomcat:8-jre
+FROM docker.io/tomcat:8-jre8
 ENV WILDFLY_VERSION 10.0.0.Final
 ENV MAVEN_VERSION 3.3.3i
 
