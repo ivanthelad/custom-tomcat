@@ -33,6 +33,7 @@ COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 COPY ./s2i/jboss-settings.xml $HOME/.m2/settings.xml
 RUN chown -R 1001:0 /usr/local/tomcat && \
     chmod -R ug+rw /usr/local/tomcat && \
+    chmod -R ug+rw /usr/local/s2i  && \
     chmod -R g+rw /opt/s2i/destination
 
 USER 1001
