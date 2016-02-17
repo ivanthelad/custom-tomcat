@@ -6,18 +6,19 @@ LABEL io.k8s.description="Platform for building and running webapp applications 
       io.k8s.display-name="Tomcat8" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,tomcat8,tomcat" \
+      io.openshift.s2i.scripts-url="image:///usr/local/s2i" \
       io.openshift.s2i.destination="/opt/s2i/destination"
 
-LABEL io.openshift.s2i.scripts-url=image:///usr/libexec/s2i
+LABEL io.openshift.s2i.scripts-url=image:///image:///usr/local/s2i
 
 # DEPRECATED: This label will be kept here for backward compatibility
-LABEL io.s2i.scripts-url=image:///usr/libexec/s2i
+LABEL io.s2i.scripts-url=image:///image:///usr/local/s2i
 
 # Deprecated. Use above LABEL instead, because this will be removed in future versions.
-ENV STI_SCRIPTS_URL=image:///usr/libexec/s2i
+ENV STI_SCRIPTS_URL=image:///image:///usr/local/s2i
 
 # Path to be used in other layers to place s2i scripts into
-ENV STI_SCRIPTS_PATH=/usr/libexec/s2i
+ENV STI_SCRIPTS_PATH=/usr/local/s2i
 RUN  mkdir -p /opt/s2i/destination
 
 RUN (curl -0 http://www.us.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | \
