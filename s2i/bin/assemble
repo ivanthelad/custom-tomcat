@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #. $(dirname $0)/common.sh
 #. /usr/local/s2i/common.sh
 # common shell routines for s2i scripts
