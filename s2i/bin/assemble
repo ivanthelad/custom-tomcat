@@ -86,7 +86,7 @@ function clear_maven_repository()  {
 
 JWS_HOME=/usr/local/tomcat
 # Source code provided to S2I is at ${HOME}/source
-ls -l /opt/s2i/destination/*
+#ls -l /opt/s2i/destination/*
 
 LOCAL_SOURCE_DIR=${HOME}/source
 mkdir -p $LOCAL_SOURCE_DIR
@@ -98,7 +98,7 @@ ARTIFACT_DIR=${ARTIFACT_DIR:-target}
 
 # Copy the source for compilation
 cp -ad /opt/s2i/destination/* $LOCAL_SOURCE_DIR
-ls -l -R $LOCAL_SOURCE_DIR
+#ls -l -R $LOCAL_SOURCE_DIR
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
 
