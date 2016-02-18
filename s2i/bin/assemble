@@ -97,7 +97,7 @@ DEPLOY_DIR=$JWS_HOME/webapps
 ARTIFACT_DIR=${ARTIFACT_DIR:-target}
 
 # Copy the source for compilation
-cp -Rf /opt/s2i/destination/src/. $LOCAL_SOURCE_DIR
+cp -ad /opt/s2i/destination/src/* $LOCAL_SOURCE_DIR
 #ls -l -R $LOCAL_SOURCE_DIR
 echo step1
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
