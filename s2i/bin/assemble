@@ -119,7 +119,7 @@ echo step3
 # If a pom.xml is present, this is a normal build scenario
 # so run maven.
 ls -l  $LOCAL_SOURCE_DIR/*
-if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
+if [ -f $LOCAL_SOURCE_DIR/pom.xml ]; then
  echo step4-1
   pushd $LOCAL_SOURCE_DIR &> /dev/null
   echo step4
