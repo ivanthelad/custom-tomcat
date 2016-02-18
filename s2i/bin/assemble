@@ -110,10 +110,10 @@ if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   cp -v $LOCAL_SOURCE_DIR/configuration/* $JWS_HOME/conf/
 fi
 
-configure_proxy
-configure_mirrors
+#configure_proxy
+#configure_mirrors
 
-manage_incremental_build
+#manage_incremental_build
 
 # If a pom.xml is present, this is a normal build scenario
 # so run maven.
