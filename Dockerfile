@@ -9,8 +9,8 @@ LABEL io.k8s.description="Platform for building and running webapp applications 
       io.openshift.s2i.scripts-url="image:///usr/local/s2i" \
       io.openshift.s2i.destination="/opt/s2i/destination"
 
-ENV HOME=/home/jboss \
-    PATH=/home/jboss/src/bin:/jboss/home/bin:$PATH
+ENV HOME=/home/jboss
+ENV PATH=/home/jboss/src/bin:/jboss/home/bin:$PATH
 
 
 
