@@ -9,6 +9,10 @@ LABEL io.k8s.description="Platform for building and running webapp applications 
       io.openshift.s2i.scripts-url="image:///usr/local/s2i" \
       io.openshift.s2i.destination="/opt/s2i/destination"
 
+ENV HOME=/opt/app-root/src \
+    PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH
+
+
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/s2i
 
 # DEPRECATED: This label will be kept here for backward compatibility
@@ -37,6 +41,6 @@ RUN chown -R 1001:0 /usr/local/tomcat && \
     chmod -R g+rw /opt/s2i/destination
 
 USER 1001
-
+WORKDIR ${HOME}
 CMD $STI_SCRIPTS_PATH/usage
 
