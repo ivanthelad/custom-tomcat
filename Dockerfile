@@ -27,6 +27,7 @@ ENV STI_SCRIPTS_URL=image:///usr/local/s2i
 # Path to be used in other layers to place s2i scripts into
 ENV STI_SCRIPTS_PATH=/usr/local/s2i
 RUN  mkdir -p /opt/s2i/destination
+RUN mkdir -p /home/jboss/
 RUN groupadd -r jboss -g 185 && useradd -u 185 -r -g jboss -m -d /home/jboss -s /sbin/nologin -c "JBoss user" jboss
 RUN (curl -0 http://www.us.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | \
     tar -zx -C /usr/local) && \
@@ -41,9 +42,10 @@ COPY ./s2i/jboss-settings.xml $HOME/.m2/settings.xml
 RUN chown -R 1001:0 /usr/local/tomcat && \
     chmod -R ug+rw /usr/local/tomcat && \
     chmod -R 777 /usr/local/s2i  && \
+    chmod -R 777 /home/jboss  && \
     chmod -R g+rw /opt/s2i/destination
 
-USER 1001
+USER 185
 WORKDIR ${HOME}
 CMD $STI_SCRIPTS_PATH/usage
 
