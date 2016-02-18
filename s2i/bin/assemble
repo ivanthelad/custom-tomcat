@@ -99,7 +99,7 @@ DEPLOY_DIR=$JWS_HOME/webapps
 ARTIFACT_DIR=${ARTIFACT_DIR:-target}
 
 # Copy the source for compilation
-cp -ad /tmp/src/* $LOCAL_SOURCE_DIR
+cp -ad /opt/s2i/destination/* $LOCAL_SOURCE_DIR
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
