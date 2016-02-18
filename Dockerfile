@@ -43,7 +43,7 @@ RUN chown -R 1001:0 /usr/local/tomcat && \
     chmod -R ug+rw /usr/local/tomcat && \
     chmod -R 777 /usr/local/s2i  && \
     chmod -R 777 /home/jboss  && \
-    chmod -R g+rw /opt/s2i/destination
+    chmod -R 777 /opt/s2i/destination
 
 USER 185
 WORKDIR ${HOME}
