@@ -4,7 +4,13 @@
 # common shell routines for s2i scripts
 
 # insert settings for HTTP proxy into settings.xml if supplied
-function configure_proxy( ) {
+
+
+
+
+
+
+function configure_proxy ( ) {
   if [ -n "$HTTP_PROXY_HOST" -a -n "$HTTP_PROXY_PORT" ]; then
     xml="<proxy>\
          <id>genproxy</id>\
