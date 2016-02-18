@@ -9,8 +9,11 @@ LABEL io.k8s.description="Platform for building and running webapp applications 
       io.openshift.s2i.scripts-url="image:///usr/local/s2i" \
       io.openshift.s2i.destination="/opt/s2i/destination"
 
-ENV HOME=/opt/app-root/src \
-    PATH=/opt/app-root/src/bin:/opt/app-root/bin:$PATH
+ENV HOME=/home/jboss \
+    PATH=/home/jboss/src/bin:/jboss/home/bin:$PATH
+
+
+
 
 
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/s2i
@@ -24,7 +27,7 @@ ENV STI_SCRIPTS_URL=image:///usr/local/s2i
 # Path to be used in other layers to place s2i scripts into
 ENV STI_SCRIPTS_PATH=/usr/local/s2i
 RUN  mkdir -p /opt/s2i/destination
-
+RUN groupadd -r jboss -g 185 && useradd -u 185 -r -g jboss -m -d /home/jboss -s /sbin/nologin -c "JBoss user" jboss
 RUN (curl -0 http://www.us.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | \
     tar -zx -C /usr/local) && \
     ln -sf /usr/local/apache-maven-$MAVEN_VERSION/bin/mvn /usr/local/bin/mvn && \
